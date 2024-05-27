@@ -1,10 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/difficulty-problems": "pages/difficulty-problems.js",
-  "/together": "pages/together.js",
-  "/ewha-ranking": "pages/ewha-ranking.js",
-  "/": "pages/index.js",
-  "/tag-problems": "pages/tag-problems.js"
-}
+{"/_app":"pages/_app.js","/difficulty-problems":"pages/difficulty-problems.html","/ewha-ranking":"pages/ewha-ranking.html","/_error":"pages/_error.js","/_document":"pages/_document.js","/":"pages/index.html","/together":"pages/together.html","/togetherWrite":"pages/togetherWrite.html","/tag-problems":"pages/tag-problems.html","/[slug]":"pages/[slug].js","/404":"pages/404.html"}

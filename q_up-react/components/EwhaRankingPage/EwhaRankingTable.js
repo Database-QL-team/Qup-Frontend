@@ -83,23 +83,24 @@ const EwhaRankingTable = ({ ewhaRankingData }) => {
           </tr>
         </thead>
         <tbody>
-          {ewhaRankingData.map((ewhaRankingData, index) => (
-            <tr key={index}>
-              <td>{ewhaRankingData.rank_ingroup}</td>
-              <td>{ewhaRankingData.handle}</td>
-              <td>{ewhaRankingData.tier}</td>
-              <td>{ewhaRankingData.solved_num}</td>
-              <td>
-                <StyledLink
-                  href={ewhaRankingData.userlink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {ewhaRankingData.userlink}
-                </StyledLink>
-              </td>
-            </tr>
-          ))}
+          {ewhaRankingData.result &&
+            ewhaRankingData.result.map((ewhaRankingData, index) => (
+              <tr key={index}>
+                <td>{ewhaRankingData.rank_ingroup}</td>
+                <td>{ewhaRankingData.handle}</td>
+                <td>{ewhaRankingData.tier}</td>
+                <td>{ewhaRankingData.solved_num}</td>
+                <td>
+                  <StyledLink
+                    href={ewhaRankingData.userlink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {ewhaRankingData.userlink}
+                  </StyledLink>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </Table>
     </WrapContainer>
