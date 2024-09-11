@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const BoxContainer = styled.div`
-  width: 350px;
-  height: 170px;
+  width: 300px;
+  height: 145px;
   padding: 20px;
   background: rgba(0, 0, 0, 0.05); /* 반투명 검정색 배경 */
   border-radius: 10px;
@@ -39,13 +39,13 @@ const CircleRight = styled(Circle)`
 `;
 
 const Title = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 10px;
   text-align: left;
 `;
 
 const RankingNum = styled.div`
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 400;
   text-align: left;
 `;

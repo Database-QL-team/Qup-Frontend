@@ -12,13 +12,14 @@ const WrapContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 20px;
+  margin-top: 20px;
   color: green;
   text-align: center;
 `;
 
-const TodayProblemWrap = ({ problems }) => {
+const TodayProblemWrap = ({ rawData }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -28,12 +29,32 @@ const TodayProblemWrap = ({ problems }) => {
     return () => clearTimeout(timer);
   }, []);
 
+  // 데이터가 유효한지 확인
+  if (!rawData) {
+    return <div>No data available</div>;
+  }
+
+  // 데이터 구조 바꾸는 코드
+  const chunkArray = (array, size) => {
+    const chunkedArray = [];
+    for (let i = 0; i < array.length; i += size) {
+      chunkedArray.push(array.slice(i, i + size));
+    }
+    return chunkedArray;
+  };
+  const chunkedData = chunkArray(rawData.todayPSList, 5);
+  const todayProblems = chunkedData.reduce((acc, chunk, index) => {
+    const title = index === 0 ? "골드" : index === 1 ? "실버" : "브론즈";
+    acc.push({ title, problems: chunk });
+    return acc;
+  }, []);
+
   return (
     <div
       className={isVisible ? "slide-up" : ""}
       style={{
         marginTop: "30px",
-        width: "40%",
+        minWidth: "30%",
         alignItems: "center",
 
         visibility: isVisible ? "visible" : "hidden",
@@ -43,7 +64,7 @@ const TodayProblemWrap = ({ problems }) => {
     >
       <Title>- 오늘의 문제 -</Title>
       <WrapContainer>
-        {problems.map((problemSet, index) => (
+        {todayProblems.map((problemSet, index) => (
           <TodayProblem
             key={index}
             title={problemSet.title}

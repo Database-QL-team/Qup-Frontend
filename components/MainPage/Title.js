@@ -18,7 +18,7 @@ const LeftText = styled.div`
 `;
 
 const CenterText = styled.div`
-  font-size: 7rem;
+  font-size: 5.5rem;
   font-weight: 200;
   text-align: center;
   flex-grow: 1;

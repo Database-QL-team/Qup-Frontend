@@ -28,7 +28,7 @@ const EwhaRanking = () => {
 
   return (
     <Layout>
-      <Title sentence={"- 이화여대 랭킹 -"} />
+      <Title sentence={"- 이화여대 랭 -"} />
       <EwhaRankingTable ewhaRankingData={data} />
     </Layout>
   );

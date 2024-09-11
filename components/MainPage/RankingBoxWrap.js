@@ -10,7 +10,7 @@ const RankingBoxContainer = styled.div`
   transition: visibility 0s, opacity 0.5s linear;
 `;
 
-const RankingBoxWrap = () => {
+const RankingBoxWrap = ({ RankingBoxData }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,6 +20,10 @@ const RankingBoxWrap = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const ewhaRanking = RankingBoxData?.result?.groupInfo?.ewha_ranking + "위";
+  const nextGroup = `${RankingBoxData?.result?.groupInfo?.rival_ranking}위 : ${RankingBoxData?.result?.groupInfo?.rival_group_name}와의 차이`;
+  const gapProblem = RankingBoxData?.result?.groupInfo?.solved_num_gap + "문제";
+
   return (
     <RankingBoxContainer
       className={isVisible ? "slide-up" : ""}
@@ -28,8 +32,8 @@ const RankingBoxWrap = () => {
         opacity: isVisible ? 1 : 0,
       }}
     >
-      <RankingBox title="현재 백준 단체 랭킹 순위" rankingNum="122위" />
-      <RankingBox title="121위 : LG CNS와의 차이" rankingNum="N문제" />
+      <RankingBox title="현재 백준 단체 랭킹 순위" rankingNum={ewhaRanking} />
+      <RankingBox title={nextGroup} rankingNum={gapProblem} />
     </RankingBoxContainer>
   );
 };

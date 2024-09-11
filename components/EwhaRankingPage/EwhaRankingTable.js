@@ -9,13 +9,13 @@ const WrapContainer = styled.div`
   border-top: 4px dotted black;
   border-bottom: 4px dotted black;
   text-align: center;
-  width: 60%;
+  min-width: 70%;
 `;
 
 // 표
 const Table = styled.table`
   font-size: 1.3rem;
-  width: 90%;
+  width: 95%;
   background: rgba(0, 0, 0, 0);
   border-spacing: 0;
   border-collapse: collapse;

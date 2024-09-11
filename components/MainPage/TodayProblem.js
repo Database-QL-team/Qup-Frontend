@@ -6,7 +6,11 @@ const ProblemContainer = styled.div`
 `;
 
 const Title = styled.div`
+<<<<<<< HEAD
   font-size: 1.5rem;
+=======
+  font-size: 1.2rem;
+>>>>>>> newcode/#0
   font-weight: 500;
   text-align: left;
   margin-bottom: 10px;
@@ -17,12 +21,19 @@ const TableWrapper = styled.div`
 `;
 
 const Table = styled.table`
+<<<<<<< HEAD
   font-size: 1.3rem;
+=======
+  font-size: 1rem;
+>>>>>>> newcode/#0
   width: 100%;
   background: rgba(0, 0, 0, 0);
   border-spacing: 0;
   border-collapse: collapse;
+<<<<<<< HEAD
 
+=======
+>>>>>>> newcode/#0
   th,
   td {
     padding: 10px;
@@ -30,6 +41,7 @@ const Table = styled.table`
     border-top: 1px solid green;
     text-align: left;
   }
+<<<<<<< HEAD
 
   td:first-child {
     padding-left: 50px;
@@ -52,10 +64,16 @@ const RegisterButton = styled.button`
 
   &:hover {
     background-color: darkgreen;
+=======
+  td:first-child {
+    padding-left: 25px;
+    width: 20%;
+>>>>>>> newcode/#0
   }
 `;
 
 const TodayProblem = ({ title, problems }) => {
+<<<<<<< HEAD
   const [registrations, setRegistrations] = useState(problems.map(() => ""));
 
   const handleRegisterClick = (index) => {
@@ -67,6 +85,8 @@ const TodayProblem = ({ title, problems }) => {
     }
   };
 
+=======
+>>>>>>> newcode/#0
   return (
     <ProblemContainer>
       <Title>{title}</Title>
@@ -75,6 +95,7 @@ const TodayProblem = ({ title, problems }) => {
           <tbody>
             {problems.map((problem, index) => (
               <tr key={index}>
+<<<<<<< HEAD
                 <td>{problem.name}</td>
                 <td>
                   {registrations[index] ? (
@@ -85,6 +106,10 @@ const TodayProblem = ({ title, problems }) => {
                     </RegisterButton>
                   )}
                 </td>
+=======
+                <td>{problem.pid}</td>
+                <td>{problem.p_title}</td>
+>>>>>>> newcode/#0
               </tr>
             ))}
           </tbody>

@@ -1,11 +1,9 @@
 import styled, { css } from "styled-components";
 import Link from "next/link";
-import { FlexBox } from "../ui/flex-box";
 
 const routes = [
   { title: "분류별 문제", href: "/tag-problems" },
   { title: "난이도별 문제", href: "/difficulty-problems" },
-  { title: "함께 풀어요", href: "/together" },
   { title: "이화랭킹", href: "/ewha-ranking" },
 ];
 
@@ -50,8 +48,8 @@ const Header = ({ className }) => {
         </div>
       </Link>
 
-      <div style={{ paddingLeft: "20px" }}>
-        <h4>뀨업</h4>
+      <div style={{ paddingLeft: "20px", paddingTop: "2px" }}>
+        <h3>뀨업</h3>
       </div>
 
       <div style={{ paddingLeft: "50px" }}></div>
@@ -69,7 +67,7 @@ const Header = ({ className }) => {
 const DesktopTopbarItem = styled.div`
   font-size: 1rem;
   font-weight: 500;
-  font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Nanum Gothic", "Arial",
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Nanum Gothic", "Arial";
 
   letter-spacing: -0.02rem;
   padding-left: 2.4rem;

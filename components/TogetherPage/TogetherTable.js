@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 // 초록 배경
 const WrapContainer = styled.div`
   padding: 20px 40px 40px 40px;
   margin: 30px auto;
-  margin-top: 0px;
   background: rgba(47, 129, 65, 0.1);
   border-top: 4px dotted black;
   border-bottom: 4px dotted black;
   text-align: center;
-  width: 60%;
+  width: 30%;
 `;
 
 // 표
@@ -20,7 +20,7 @@ const Table = styled.table`
   background: rgba(0, 0, 0, 0);
   border-spacing: 0;
   border-collapse: collapse;
-  margin: 0 auto;
+  margin: 0 auto; /* 가운데 정렬!! */
   margin-top: 40px;
   margin-bottom: 40px;
 
@@ -36,19 +36,11 @@ const Table = styled.table`
     font-weight: bold;
     background-color: rgba(47, 129, 65, 0.2);
   }
-
-  th:first-child,
-  td:first-child {
-    padding-left: 70px;
-  }
-
-  th:last-child,
-  td:last-child {
-  }
 `;
 
-const TogetherTable = ({ togetherData }) => {
+const TagMainProblemTable = ({ problems }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -56,6 +48,10 @@ const TogetherTable = ({ togetherData }) => {
     }, 400);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleRowClick = (name) => {
+    router.push(`/tag-problems/${name}`);
+  };
 
   return (
     <WrapContainer
@@ -68,17 +64,13 @@ const TogetherTable = ({ togetherData }) => {
       <Table>
         <thead>
           <tr>
-            <th>문제 번호</th>
-            <th>게시글 제목</th>
-            <th>핸들</th>
+            <th>알고리즘 분류</th>
           </tr>
         </thead>
         <tbody>
-          {togetherData.map((togetherData, index) => (
-            <tr key={index}>
-              <td>{togetherData.problemNumber}</td>
-              <td>{togetherData.problemTitle}</td>
-              <td>{togetherData.handle}</td>
+          {problems.map((problem, index) => (
+            <tr key={index} onClick={() => handleRowClick(problem.name)}>
+              <td>{problem.name}</td>
             </tr>
           ))}
         </tbody>
@@ -87,4 +79,4 @@ const TogetherTable = ({ togetherData }) => {
   );
 };
 
-export default TogetherTable;
+export default TagMainProblemTable;

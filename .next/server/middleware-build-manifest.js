@@ -38,11 +38,14 @@ self.__BUILD_MANIFEST = {
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/tag-problems.js"
+<<<<<<< HEAD
     ],
     "/together": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/together.js"
+=======
+>>>>>>> newcode/#0
     ]
   },
   "ampFirstPages": []

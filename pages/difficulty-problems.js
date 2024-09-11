@@ -1,6 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import Title from "../components/Title";
-import ProblemTable from "../components/ProblemPage/ProblemTable";
+import DifficultyMainProblemTable from "../components/DifficultyProblemPage/DifficultyMainProblemTable";
 
 const tagProblemData = [
   { name: "B5", count: 6180 },
@@ -39,7 +39,7 @@ const TagProblems = () => {
   return (
     <Layout>
       <Title sentence={"- 난이도별 벗들이 안 푼 문제 -"} />
-      <ProblemTable problems={tagProblemData} />
+      <DifficultyMainProblemTable problems={tagProblemData} />
     </Layout>
   );
 };
