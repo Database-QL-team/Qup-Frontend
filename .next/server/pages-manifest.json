@@ -2,8 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/ewha-ranking": "pages/ewha-ranking.js",
+  "/difficulty-problems": "pages/difficulty-problems.js",
   "/tag-problems": "pages/tag-problems.js",
-  "/difficulty-problems": "pages/difficulty-problems.js"
+  "/": "pages/index.js",
+  "/ewha-ranking": "pages/ewha-ranking.js"
 }
