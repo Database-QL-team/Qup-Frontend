@@ -3,13 +3,7 @@ const webpack = require("webpack");
 module.exports = {
   reactStrictMode: true,
 
-  webpackDevMiddleware: (config) => {
-    config.watchOptions = {
-      poll: 1000, // 1초마다 파일 변경 감지
-      aggregateTimeout: 300, // 300ms 후에 다시 빌드 시작
-    };
-    return config;
-  },
+  // webpackDevMiddleware는 더 이상 사용되지 않으므로 제거합니다.
 
   async rewrites() {
     return [
@@ -25,16 +19,18 @@ module.exports = {
   },
 
   webpack: (config, { dev, isServer }) => {
+    // 개발 환경 및 클라이언트 측에서만 Hot Module Replacement 적용
     if (dev && !isServer) {
       config.plugins.push(new webpack.HotModuleReplacementPlugin());
     }
 
+    // 환경 변수 설정
     config.plugins.push(
-      new webpack.DefinePlugin({
-        "process.env.NEXT_DISABLE_SSR": JSON.stringify(
-          process.env.NEXT_DISABLE_SSR
-        ),
-      })
+        new webpack.DefinePlugin({
+          "process.env.NEXT_DISABLE_SSR": JSON.stringify(
+              process.env.NEXT_DISABLE_SSR
+          ),
+        })
     );
 
     return config;

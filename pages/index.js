@@ -6,6 +6,7 @@ import Title from "../components/MainPage/Title";
 import RankingBoxWrap from "../components/MainPage/RankingBoxWrap";
 import TodayProblemWrap from "../components/MainPage/TodayProblemWrap";
 
+
 const Home = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

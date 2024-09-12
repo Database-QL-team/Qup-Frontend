@@ -6,6 +6,7 @@ const ProblemContainer = styled.div`
 `;
 
 const Title = styled.div`
+
   font-size: 1.2rem;
   font-weight: 500;
   text-align: left;
@@ -18,10 +19,12 @@ const TableWrapper = styled.div`
 
 const Table = styled.table`
   font-size: 1rem;
+
   width: 100%;
   background: rgba(0, 0, 0, 0);
   border-spacing: 0;
   border-collapse: collapse;
+  
   th,
   td {
     padding: 10px;
@@ -29,6 +32,7 @@ const Table = styled.table`
     border-top: 1px solid green;
     text-align: left;
   }
+
   td:first-child {
     padding-left: 25px;
     width: 20%;
@@ -44,8 +48,10 @@ const TodayProblem = ({ title, problems }) => {
           <tbody>
             {problems.map((problem, index) => (
               <tr key={index}>
+
                 <td>{problem.pid}</td>
                 <td>{problem.p_title}</td>
+
               </tr>
             ))}
           </tbody>
