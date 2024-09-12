@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE: qup-frontend
+  DOCKER_IMAGE: celina324/qup-frontend
 
 jobs:
   build-and-push-docker:
