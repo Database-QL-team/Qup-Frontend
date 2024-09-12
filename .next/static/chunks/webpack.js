@@ -131,11 +131,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = function() { return "4e27af724b1b1866"; }
-=======
-/******/ 		__webpack_require__.h = function() { return "24f8c47488facd41"; }
->>>>>>> newcode/#0
+/******/ 		__webpack_require__.h = function() { return "e67675c10e292559"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -641,8 +637,6 @@
 /******/ 		}
 /******/ 	}();
 /******/ 	
-<<<<<<< HEAD
-=======
 /******/ 	/* webpack/runtime/hot module replacement */
 /******/ 	!function() {
 /******/ 		var currentModuleData = {};
@@ -1035,7 +1029,6 @@
 /******/ 		}
 /******/ 	}();
 /******/ 	
->>>>>>> newcode/#0
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	!function() {
 /******/ 		__webpack_require__.p = "/_next/";

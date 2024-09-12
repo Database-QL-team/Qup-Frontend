@@ -2,15 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
   "/": "pages/index.js",
-  "/difficulty-problems": "pages/difficulty-problems.js",
-  "/together": "pages/together.js",
   "/tag-problems": "pages/tag-problems.js",
-=======
   "/difficulty-problems": "pages/difficulty-problems.js",
-  "/tag-problems": "pages/tag-problems.js",
-  "/": "pages/index.js",
->>>>>>> newcode/#0
-  "/ewha-ranking": "pages/ewha-ranking.js"
+  "/ewha-ranking": "pages/ewha-ranking.js",
+  "/tag-problems/[name]": "pages/tag-problems/[name].js"
 }
