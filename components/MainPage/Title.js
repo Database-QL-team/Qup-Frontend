@@ -23,7 +23,7 @@ const LeftText = styled.div`
   @media (max-width: 700px) {
     font-size: 1rem;
     margin-bottom: 1rem;
-    margin-top: 4rem;
+    margin-top: 1rem;
   }
 `;
 
