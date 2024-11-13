@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 import Link from "next/link";
+import Text from "../ui/text/Text";
 
 const routes = [
   { title: "분류별 문제", href: "/tag-problems" },
   { title: "난이도별 문제", href: "/difficulty-problems" },
-  { title: "이화랭킹", href: "/ewha-ranking" },
 ];
 
 const LogoWrapper = styled.div`
@@ -29,11 +29,17 @@ const StyledHeader = styled.header`
   left: 0;
   z-index: 1000;
   width: 100%;
-  height: 75px;
+  height: 78px;
   padding: 0 0 0 0;
+`;
+
+const Qup = styled.div`
+  font-size: 1.4rem;
+  color: #0c0e27;
+  font-weight: 600;
 
   @media (max-width: 700px) {
-    padding: 0 8vw;
+    font-size: 1rem;
   }
 `;
 
@@ -41,7 +47,7 @@ const Header = ({ className }) => {
   return (
     <StyledHeader className={className}>
       <Link href="/">
-        <div style={{ paddingLeft: "50px" }}>
+        <div style={{ paddingLeft: "5vw" }}>
           <LogoWrapper>
             <img src="/images/QL_logo.png" alt="logo" />
           </LogoWrapper>
@@ -49,7 +55,7 @@ const Header = ({ className }) => {
       </Link>
 
       <div style={{ paddingLeft: "20px", paddingTop: "2px" }}>
-        <h3>뀨업</h3>
+        <Qup>뀨업</Qup>
       </div>
 
       <div style={{ paddingLeft: "50px" }}></div>
@@ -59,13 +65,13 @@ const Header = ({ className }) => {
           <DesktopTopbarItem>{title}</DesktopTopbarItem>
         </Link>
       ))}
-      <div style={{ paddingLeft: "50px" }}></div>
+      <div style={{ paddingLeft: "5vw" }}></div>
     </StyledHeader>
   );
 };
 
 const DesktopTopbarItem = styled.div`
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Nanum Gothic", "Arial";
 
@@ -82,6 +88,11 @@ const DesktopTopbarItem = styled.div`
 
   &:hover {
     font-weight: 600;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 0.9rem;
+    padding-left: 1rem;
   }
 `;
 

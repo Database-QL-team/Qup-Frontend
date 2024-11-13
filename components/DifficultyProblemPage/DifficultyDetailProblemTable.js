@@ -10,6 +10,11 @@ const WrapContainer = styled.div`
   border-bottom: 4px dotted black;
   text-align: center;
   width: 80%;
+
+  @media (max-width: 700px) {
+    margin: 20px auto;
+    padding: 10px 20px;
+  }
 `;
 
 // 표
@@ -43,6 +48,13 @@ const Table = styled.table`
 
   th:last-child,
   td:last-child {
+  }
+
+  @media (max-width: 700px) {
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 `;
 

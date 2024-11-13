@@ -11,6 +11,11 @@ const WrapContainer = styled.div`
   border-bottom: 4px dotted black;
   text-align: center;
   width: 30%;
+
+  @media (max-width: 700px) {
+    width: 80%;
+    margin: 20px auto;
+  }
 `;
 
 // 표
@@ -35,6 +40,13 @@ const Table = styled.table`
   th {
     font-weight: bold;
     background-color: rgba(47, 129, 65, 0.2);
+  }
+
+  @media (max-width: 700px) {
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 `;
 

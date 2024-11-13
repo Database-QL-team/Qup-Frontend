@@ -7,9 +7,15 @@ const BoxContainer = styled.div`
   background: rgba(0, 0, 0, 0.05); /* 반투명 검정색 배경 */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+
   position: relative;
   margin: 20px;
+
+  @media (max-width: 700px) {
+    width: 150px;
+    height: 120px;
+    padding: 5px;
+  }
 `;
 
 const Line = styled.div`
@@ -42,12 +48,20 @@ const Title = styled.div`
   font-size: 1.2rem;
   margin-bottom: 10px;
   text-align: left;
+
+  @media (max-width: 700px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const RankingNum = styled.div`
   font-size: 3rem;
   font-weight: 400;
-  text-align: left;
+  text-align: right;
+
+  @media (max-width: 700px) {
+    font-size: 2rem;
+  }
 `;
 
 const RankingBox = ({ title, rankingNum }) => {
