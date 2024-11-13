@@ -8,6 +8,10 @@ const TitleSectionContainer = styled.div`
   padding: 20px;
   box-sizing: border-box;
   transition: visibility 0s, opacity 0.5s linear;
+
+  @media (max-width: 700px) {
+    width: 90%;
+  }
 `;
 
 const LeftText = styled.div`
@@ -15,6 +19,12 @@ const LeftText = styled.div`
   font-weight: 400;
   text-align: left;
   font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Nanum Gothic", "Arial";
+
+  @media (max-width: 700px) {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+  }
 `;
 
 const CenterText = styled.div`
@@ -23,6 +33,10 @@ const CenterText = styled.div`
   text-align: center;
   flex-grow: 1;
   font-family: "Times New Roman", Times, serif;
+
+  @media (max-width: 700px) {
+    font-size: 2.9rem;
+  }
 `;
 
 const RightText = styled.div`
@@ -31,6 +45,11 @@ const RightText = styled.div`
   text-align: right;
   font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Nanum Gothic", "Arial",
     sans-serif;
+
+  @media (max-width: 700px) {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
 `;
 
 const Title = () => {

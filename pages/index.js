@@ -6,7 +6,6 @@ import Title from "../components/MainPage/Title";
 import RankingBoxWrap from "../components/MainPage/RankingBoxWrap";
 import TodayProblemWrap from "../components/MainPage/TodayProblemWrap";
 
-
 const Home = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,11 +28,11 @@ const Home = () => {
   }, []);
 
   return (
-      <Layout>
-        <Title />
-        <RankingBoxWrap RankingBoxData={data} />
-        <TodayProblemWrap rawData={data?.result} />
-      </Layout>
+    <Layout>
+      <Title />
+      <RankingBoxWrap RankingBoxData={data} />
+      <TodayProblemWrap rawData={data?.result} />
+    </Layout>
   );
 };
 

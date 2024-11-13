@@ -12,11 +12,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -32,10 +27,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/difficulty-problems.js"
     ],
-    "/ewha-ranking": [
+    "/difficulty-problems/[name]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/ewha-ranking.js"
+      "static/chunks/pages/difficulty-problems/[name].js"
     ],
     "/tag-problems": [
       "static/chunks/webpack.js",

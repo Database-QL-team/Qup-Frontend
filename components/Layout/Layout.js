@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
-
-const LayoutContainer = styled.div`
-  position: relative;
-  min-height: 100vh;
-  background: url("/images/background.svg") no-repeat top center fixed;
-  background-size: cover;
-`;
+import Background from "./backGround/Background";
 
 const MainContent = styled.main`
   padding-top: 75px;
@@ -19,11 +13,10 @@ const MainContent = styled.main`
 const Layout = ({ children }) => {
   return (
     <>
-      <LayoutContainer>
-        <Header />
-        <MainContent>{children}</MainContent>
-        <Footer />
-      </LayoutContainer>
+      <Background />
+      <Header />
+      <MainContent>{children}</MainContent>
+      <Footer />
     </>
   );
 };

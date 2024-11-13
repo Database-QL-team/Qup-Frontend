@@ -1,5 +1,5 @@
 import Layout from "../components/Layout/Layout";
-import Title from "../components/Title";
+import Title from "../components/ui/Title";
 
 import TagMainProblemTable from "../components/TagProblemPage/TagMainProblemTable";
 
