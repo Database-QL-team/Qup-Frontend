@@ -7,7 +7,7 @@ import TodayProblemWrap from "../components/MainPage/TodayProblemWrap";
 import { mainApi } from "../apis/mainApi";
 
 const Home = () => {
-  const [data, setData] = useState(null); // 초기값을 null로 설정
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -16,6 +16,7 @@ const Home = () => {
       setIsLoading(true);
       try {
         const response = await mainApi();
+        console.log(response);
         if (response) {
           setData(response);
         } else {
@@ -42,8 +43,8 @@ const Home = () => {
   return (
     <Layout>
       <Title />
-      <RankingBoxWrap RankingBoxData={data.groupInfo} />
-      <TodayProblemWrap rawData={data} />
+      {/* <RankingBoxWrap RankingBoxData={data.groupInfo} />
+      <TodayProblemWrap rawData={data} /> */}
     </Layout>
   );
 };
