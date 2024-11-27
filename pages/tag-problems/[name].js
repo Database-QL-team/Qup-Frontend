@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Layout from "../../components/Layout/Layout";
-import Title from "../../components/Title";
+import Title from "../../components/ui/Title";
 import TagDetailProblemTable from "../../components/TagProblemPage/TagDetailProblemTable";
 
 const tagProblemsDetail = () => {

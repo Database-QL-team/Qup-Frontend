@@ -7,6 +7,12 @@ const TitleSectionContainer = styled.div`
   width: 61%;
   padding: 20px;
   box-sizing: border-box;
+
+  @media (max-width: 700px) {
+    width: 90%;
+    padding: 10px;
+    margin-top: 30px;
+  }
 `;
 const CenterText = styled.div`
   font-size: 2rem;
@@ -15,6 +21,10 @@ const CenterText = styled.div`
   flex-grow: 1;
   font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Nanum Gothic", "Arial";
   color: #156827;
+
+  @media (max-width: 700px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Title = ({ sentence }) => {
