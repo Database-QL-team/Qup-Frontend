@@ -43,8 +43,8 @@ const Home = () => {
   return (
     <Layout>
       <Title />
-      {/* <RankingBoxWrap RankingBoxData={data.groupInfo} />
-      <TodayProblemWrap rawData={data} /> */}
+      <RankingBoxWrap RankingBoxData={data?.groupInfo} />
+      <TodayProblemWrap rawData={data?.todayPSList} />
     </Layout>
   );
 };

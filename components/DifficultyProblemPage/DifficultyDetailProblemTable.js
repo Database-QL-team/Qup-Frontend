@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
+import { TruncatedText } from "../../utils/TruncatedText";
 
 // 초록 배경
 const WrapContainer = styled.div`
@@ -30,7 +31,7 @@ const Table = styled.table`
 
   th,
   td {
-    padding: 10px;
+    padding: 10px 5px;
     border-bottom: 1px solid green;
     border-top: 1px solid green;
     text-align: left;
@@ -43,7 +44,7 @@ const Table = styled.table`
 
   th:first-child,
   td:first-child {
-    padding-left: 10px;
+    padding-left: 20px;
   }
 
   th:last-child,
@@ -55,18 +56,43 @@ const Table = styled.table`
     font-size: 0.7rem;
     margin-top: 20px;
     margin-bottom: 20px;
+    th:first-child,
+    td:first-child {
+      padding-left: 10px;
+    }
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 15%;
+    }
   }
 `;
 
-const StyledLink = styled.a`
-  color: green;
+const LinkButton = styled.a`
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
 
   &:hover {
-    color: #a0d468;
+    background-color: darkgreen;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 0.6rem;
+    padding: 4px 8px;
   }
 `;
 
-const DifficultyDetailProblemTable = ({ ProblemData }) => {
+const StyledImage = styled.img`
+  width: 70%;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+`;
+const DifficultyDetailProblemTable = ({ name, ProblemData }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -88,31 +114,41 @@ const DifficultyDetailProblemTable = ({ ProblemData }) => {
         <thead>
           <tr>
             <th>번호</th>
-            <th>솔브닥 제목</th>
+            <th>제목</th>
             <th>푼 사람 수</th>
-            <th>푼 문제 링크</th>
+            <th>링크</th>
           </tr>
         </thead>
         <tbody>
-          {ProblemData.result &&
-            ProblemData.result.map((ProblemData, index) => (
+          {ProblemData &&
+            ProblemData.map((Problem, index) => (
               <tr key={index}>
-                <td>{ProblemData.pid}</td>
-                <td>{ProblemData.p_title}</td>
-                <td>{ProblemData.solvednum}</td>
+                <td>{Problem.problemId}</td>
                 <td>
-                  <StyledLink
-                    href={ProblemData.link}
+                  <TruncatedText
+                    title={Problem.title}
+                    maxWidth="430px"
+                    maxWidthMobile="100px"
+                  >
+                    {Problem.title}
+                  </TruncatedText>
+                </td>
+                <td>{Problem.solvedNum}</td>
+                <td>
+                  <LinkButton
+                    href={Problem.link}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {ProblemData.link}
-                  </StyledLink>
+                    기여하기!
+                  </LinkButton>
                 </td>
               </tr>
             ))}
         </tbody>
       </Table>
+      {name === "B4" && <StyledImage src="/images/b4.png" />}
+      {name === "B5" && <StyledImage src="/images/b5.png" />}
     </WrapContainer>
   );
 };

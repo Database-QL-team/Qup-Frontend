@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
+import tierNumberChange from "../../utils/tierNumberChange";
+import { TruncatedText } from "../../utils/TruncatedText";
 
 // 초록 배경
 const WrapContainer = styled.div`
@@ -55,49 +57,44 @@ const Table = styled.table`
     font-size: 0.7rem;
     margin-top: 20px;
     margin-bottom: 20px;
+    th,
+    td {
+      padding: 10px 0;
+    }
+    th:first-child,
+    td:first-child {
+      padding-left: 10px;
+      width: 10%;
+    }
+    th:nth-child(2),
+    td:nth-child(2) {
+      width: 15%;
+    }
+    th:nth-child(4),
+    td:nth-child(4) {
+      width: 15%;
+    }
   }
 `;
 
-const StyledLink = styled.a`
-  color: green;
+const LinkButton = styled.a`
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
 
   &:hover {
-    color: #a0d468;
+    background-color: darkgreen;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 0.6rem;
+    padding: 4px 8px;
   }
 `;
-
-const tierNumList = [
-  { name: "B5", num: 1 },
-  { name: "B4", num: 2 },
-  { name: "B3", num: 3 },
-  { name: "B2", num: 4 },
-  { name: "B1", num: 5 },
-  { name: "S5", num: 6 },
-  { name: "S4", num: 7 },
-  { name: "S3", num: 8 },
-  { name: "S2", num: 9 },
-  { name: "S1", num: 10 },
-  { name: "G5", num: 11 },
-  { name: "G4", num: 12 },
-  { name: "G3", num: 13 },
-  { name: "G2", num: 14 },
-  { name: "G1", num: 15 },
-  { name: "P5", num: 16 },
-  { name: "P4", num: 17 },
-  { name: "P3", num: 18 },
-  { name: "P2", num: 19 },
-  { name: "P1", num: 20 },
-  { name: "D5", num: 21 },
-  { name: "D4", num: 22 },
-  { name: "D3", num: 23 },
-  { name: "D2", num: 24 },
-  { name: "D1", num: 25 },
-  { name: "R5", num: 26 },
-  { name: "R4", num: 27 },
-  { name: "R3", num: 28 },
-  { name: "R2", num: 29 },
-  { name: "R1", num: 30 },
-];
 
 const TagDetailProblemTable = ({ ProblemData }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -108,11 +105,6 @@ const TagDetailProblemTable = ({ ProblemData }) => {
     }, 400);
     return () => clearTimeout(timer);
   }, []);
-
-  const tierName = (num) => {
-    const tier = tierNumList.find((tier) => tier.num == num);
-    return tier ? tier.name : null;
-  };
 
   return (
     <WrapContainer
@@ -133,21 +125,29 @@ const TagDetailProblemTable = ({ ProblemData }) => {
           </tr>
         </thead>
         <tbody>
-          {ProblemData.result &&
-            ProblemData.result.map((ProblemData, index) => (
+          {ProblemData &&
+            ProblemData.map((Problem, index) => (
               <tr key={index}>
-                <td>{tierName(ProblemData.tier)}</td>
-                <td>{ProblemData.pid}</td>
-                <td>{ProblemData.p_title}</td>
-                <td>{ProblemData.solvednum}</td>
+                <td>{tierNumberChange(Problem.tier)}</td>
+                <td>{Problem.problemId}</td>{" "}
                 <td>
-                  <StyledLink
-                    href={ProblemData.link}
+                  <TruncatedText
+                    title={Problem.title}
+                    maxWidth="430px"
+                    maxWidthMobile="85px"
+                  >
+                    {Problem.title}
+                  </TruncatedText>
+                </td>
+                <td>{Problem.solvedNum}</td>
+                <td>
+                  <LinkButton
+                    href={Problem.link}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {ProblemData.link}
-                  </StyledLink>
+                    기여하기!
+                  </LinkButton>
                 </td>
               </tr>
             ))}

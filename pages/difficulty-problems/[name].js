@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { tierApi } from "../../apis/tierApi";
 
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/ui/Title";
@@ -47,7 +47,7 @@ const tagProblemsDetail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // 알고리즘 넘버변경
+  // 티어 숫자로 변환
   const tierNumber = (name) => {
     const tier = tierNumList.find((tier) => tier.name === name);
     return tier ? tier.num : null;
@@ -57,11 +57,8 @@ const tagProblemsDetail = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(
-          `http://localhost:8080/problems/tier?tier=${tierNumber(name)}`
-        );
-        setData(response.data);
-        console.log(response.data);
+        const response = await tierApi(tierNumber(name));
+        setData(response);
         setIsLoading(false);
       } catch (error) {
         setError("데이터를 불러오는 중 에러가 발생했습니다.");
@@ -69,13 +66,21 @@ const tagProblemsDetail = () => {
       }
     };
 
-    fetchData();
-  }, []);
+    if (name) {
+      fetchData();
+    }
+  }, [name]);
 
   return (
     <Layout>
       <Title sentence={`- ${name} -`} />
-      <DifficultyDetailProblemTable ProblemData={data} />
+      {isLoading ? (
+        <p>로딩 중...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <DifficultyDetailProblemTable name={name} ProblemData={data} />
+      )}
     </Layout>
   );
 };

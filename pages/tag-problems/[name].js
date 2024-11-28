@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { tagApi } from "../../apis/tagApi";
 
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/ui/Title";
@@ -18,11 +18,8 @@ const tagProblemsDetail = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(
-          `http://localhost:8080/problems/algo?tag=${name}`
-        );
-        setData(response.data);
-        console.log(response.data);
+        const response = await tagApi(name);
+        setData(response);
         setIsLoading(false);
       } catch (error) {
         setError("데이터를 불러오는 중 에러가 발생했습니다.");
@@ -30,13 +27,21 @@ const tagProblemsDetail = () => {
       }
     };
 
-    fetchData();
-  }, []);
+    if (name) {
+      fetchData();
+    }
+  }, [name]);
 
   return (
     <Layout>
       <Title sentence={`- ${name} -`} />
-      <TagDetailProblemTable ProblemData={data} />
+      {isLoading ? (
+        <p>로딩 중...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <TagDetailProblemTable ProblemData={data} />
+      )}
     </Layout>
   );
 };
