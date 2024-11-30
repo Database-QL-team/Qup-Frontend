@@ -3,20 +3,32 @@ import TodayProblem from "./TodayProblem";
 import React, { useEffect, useState } from "react";
 
 const WrapContainer = styled.div`
+  width: 600px;
   padding: 20px 40px 40px 40px;
   margin: 30px;
   background: rgba(47, 129, 65, 0.1);
   border-top: 4px dotted black;
   border-bottom: 4px dotted black;
   text-align: center;
+
+  @media (max-width: 700px) {
+    width: 300px;
+    padding: 20px;
+    margin: 10px;
+  }
 `;
 
-const Title = styled.h2`
+const MainTitle = styled.h2`
   font-size: 1.3rem;
   margin-bottom: 20px;
   margin-top: 20px;
   color: green;
   text-align: center;
+
+  @media (max-width: 700px) {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const TodayProblemWrap = ({ rawData }) => {
@@ -29,25 +41,39 @@ const TodayProblemWrap = ({ rawData }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // 데이터가 유효한지 확인
-  if (!rawData) {
-    return <div>No data available</div>;
+  // 데이터가 유효한지
+  if (!rawData || rawData.length === 0) {
+    return <h3>No data available</h3>;
   }
 
-  // 데이터 구조 바꾸는 코드
-  const chunkArray = (array, size) => {
-    const chunkedArray = [];
-    for (let i = 0; i < array.length; i += size) {
-      chunkedArray.push(array.slice(i, i + size));
-    }
-    return chunkedArray;
+  const groupByTier = (data) => {
+    const groups = {
+      플래티넘: [],
+      골드: [],
+      실버: [],
+      브론즈: [],
+    };
+
+    data.forEach((problem) => {
+      if (problem.tier >= 1 && problem.tier <= 5) {
+        groups["브론즈"].push(problem);
+      } else if (problem.tier >= 6 && problem.tier <= 10) {
+        groups["실버"].push(problem);
+      } else if (problem.tier >= 11 && problem.tier <= 15) {
+        groups["골드"].push(problem);
+      } else if (problem.tier >= 16 && problem.tier <= 20) {
+        groups["플래티넘"].push(problem);
+      }
+    });
+
+    Object.keys(groups).forEach((key) => {
+      groups[key] = groups[key].slice(0, 5);
+    });
+
+    return groups;
   };
-  const chunkedData = chunkArray(rawData.todayPSList, 5);
-  const todayProblems = chunkedData.reduce((acc, chunk, index) => {
-    const title = index === 0 ? "골드" : index === 1 ? "실버" : "브론즈";
-    acc.push({ title, problems: chunk });
-    return acc;
-  }, []);
+
+  const groupedData = groupByTier(rawData);
 
   return (
     <div
@@ -62,14 +88,10 @@ const TodayProblemWrap = ({ rawData }) => {
         transition: "visibility 0s, opacity 0.5s linear",
       }}
     >
-      <Title>- 오늘의 문제 -</Title>
+      <MainTitle>- 오늘의 문제 -</MainTitle>
       <WrapContainer>
-        {todayProblems.map((problemSet, index) => (
-          <TodayProblem
-            key={index}
-            title={problemSet.title}
-            problems={problemSet.problems}
-          />
+        {Object.entries(groupedData).map(([group, problems]) => (
+          <TodayProblem key={group} title={group} problems={problems} />
         ))}
       </WrapContainer>
     </div>

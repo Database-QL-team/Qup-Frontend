@@ -10,7 +10,7 @@ const WrapContainer = styled.div`
   border-top: 4px dotted black;
   border-bottom: 4px dotted black;
   text-align: center;
-  width: 30%;
+  width: 50%;
 
   @media (max-width: 700px) {
     width: 80%;
@@ -44,7 +44,7 @@ const Table = styled.table`
 
   @media (max-width: 700px) {
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-top: 20px;
     margin-bottom: 20px;
   }

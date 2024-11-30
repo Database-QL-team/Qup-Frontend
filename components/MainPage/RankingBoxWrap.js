@@ -20,9 +20,9 @@ const RankingBoxWrap = ({ RankingBoxData }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const ewhaRanking = RankingBoxData?.result?.groupInfo?.ewha_ranking + "위";
-  const nextGroup = `${RankingBoxData?.result?.groupInfo?.rival_ranking}위 : ${RankingBoxData?.result?.groupInfo?.rival_group_name}와의 차이`;
-  const gapProblem = RankingBoxData?.result?.groupInfo?.solved_num_gap + "문제";
+  const ewhaRanking = RankingBoxData?.ewhaRank + "위";
+  const nextGroup = `${RankingBoxData?.rivalRank}위 : ${RankingBoxData?.rivalName}와의 차이`;
+  const gapProblem = RankingBoxData?.solvedNumGap + "문제";
 
   return (
     <RankingBoxContainer

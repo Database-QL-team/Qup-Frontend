@@ -1,19 +1,20 @@
 import styled from "styled-components";
+import { TruncatedText } from "../../utils/TruncatedText";
 
 const BoxContainer = styled.div`
-  width: 300px;
-  height: 145px;
-  padding: 20px;
+  width: 280px;
+  height: 140px;
+  padding: 15px;
   background: rgba(0, 0, 0, 0.05); /* 반투명 검정색 배경 */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   position: relative;
-  margin: 20px;
+  margin: 10px;
 
   @media (max-width: 700px) {
     width: 150px;
-    height: 120px;
+    height: 90px;
     padding: 5px;
   }
 `;
@@ -71,8 +72,12 @@ const RankingBox = ({ title, rankingNum }) => {
         <Circle position="top" />
         <CircleRight position="top" />
       </Line>
-      <div style={{ margin: "12px 10px 12px 18px" }}>
-        <Title>{title}</Title>
+      <div style={{ margin: "12px 18px 12px 13px" }}>
+        <Title>
+          <TruncatedText maxWidth="220px" maxWidthMobile="120px">
+            {title}
+          </TruncatedText>
+        </Title>
         <RankingNum>{rankingNum}</RankingNum>
       </div>
       <Line position="bottom">
