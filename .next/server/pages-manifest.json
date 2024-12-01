@@ -1,1 +1,10 @@
-{"/_app":"pages/_app.js","/_document":"pages/_document.js","/_error":"pages/_error.js","/difficulty-problems":"pages/difficulty-problems.html","/tag-problems":"pages/tag-problems.html","/tag-problems/[name]":"pages/tag-problems/[name].html","/difficulty-problems/[name]":"pages/difficulty-problems/[name].html","/":"pages/index.html","/[slug]":"pages/[slug].js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/difficulty-problems": "pages/difficulty-problems.js",
+  "/tag-problems/[name]": "pages/tag-problems/[name].js",
+  "/tag-problems": "pages/tag-problems.js",
+  "/difficulty-problems/[name]": "pages/difficulty-problems/[name].js"
+}

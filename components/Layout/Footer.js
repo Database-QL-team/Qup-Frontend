@@ -47,8 +47,10 @@ const Footer = () => {
     <FooterWrapper>
       <Title>이화여자대학교 백준 랭킹 사이트 : 뀨업</Title>
       <SubTitle>Team 뀨엘</SubTitle>
-      <Member>정은채 | 정소은 | 정희원 </Member>
+      <Member>정은채 | 정소은 | 전희원 </Member>
       <Member>도움 : 박세은 | 최이경 </Member>
+
+      <Member>데이터 갱신은 매일 밤 정각에 이루어집니다.</Member>
     </FooterWrapper>
   );
 };
