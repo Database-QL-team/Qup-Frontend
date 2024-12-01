@@ -26,26 +26,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
-    ],
-    "/difficulty-problems": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/difficulty-problems.js"
-    ],
-    "/difficulty-problems/[name]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/difficulty-problems/[name].js"
-    ],
-    "/tag-problems": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/tag-problems.js"
-    ],
-    "/tag-problems/[name]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/tag-problems/[name].js"
     ]
   },
   "ampFirstPages": []

@@ -49,7 +49,7 @@ const Footer = () => {
       <SubTitle>Team 뀨엘</SubTitle>
       <Member>정은채 | 정소은 | 전희원 </Member>
       <Member>도움 : 박세은 | 최이경 </Member>
-
+      <br />
       <Member>데이터 갱신은 매일 밤 정각에 이루어집니다.</Member>
     </FooterWrapper>
   );
