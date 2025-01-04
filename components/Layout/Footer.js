@@ -51,6 +51,9 @@ const Footer = () => {
       <Member>도움 : 박세은 | 최이경 </Member>
       <br />
       <Member>데이터 갱신은 매일 밤 정각에 이루어집니다.</Member>
+      <Member>
+        리프레시 버튼을 누르면 벗의 푼 문제 업데이트가 진행 및 반영됩니다.
+      </Member>
     </FooterWrapper>
   );
 };

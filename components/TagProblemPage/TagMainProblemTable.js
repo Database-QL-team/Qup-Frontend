@@ -65,6 +65,15 @@ const TagMainProblemTable = ({ problems }) => {
     router.push(`/tag-problems/${name}`);
   };
 
+  const TableRow = styled.tr`
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(47, 129, 65, 0.1);
+    }
+  `;
+
   return (
     <WrapContainer
       className={isVisible ? "slide-up" : ""}
@@ -81,9 +90,9 @@ const TagMainProblemTable = ({ problems }) => {
         </thead>
         <tbody>
           {problems.map((problem, index) => (
-            <tr key={index} onClick={() => handleRowClick(problem.name)}>
+            <TableRow key={index} onClick={() => handleRowClick(problem.name)}>
               <td>{problem.name}</td>
-            </tr>
+            </TableRow>
           ))}
         </tbody>
       </Table>

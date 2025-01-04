@@ -2,9 +2,7 @@
 
 ### <a href="http://ewhaqup.com">이화여대 백준(솔브닥) 랭킹 상승용 웹사이트</a>
 
----
-
-![기술 스택](./public/readme/qup.png)
+![메인페이지](./public/readme/qup.png)
 
   <h4>🚨이대가 💥127위💥라고?! 벗들 힘을 합쳐줘!(PS이야기임)</h4>
 <div style="border: 3px solid green; padding: 10px; border-radius: 10px;">
