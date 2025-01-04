@@ -67,28 +67,31 @@ PS벗들 화이팅!
 
 <table style="width: 100%;">
   <tr>
-    <th>이름 <a href="https://github.com/(깃허브 핸들)" target="_blank">(깃허브 핸들)</a></th>
+    <th>전희원 <a href="https://github.com/isc10120" target="_blank">isc10120</a></th>
   </tr>
   <tr>
-    <td>BE</td>
+    <td>BE(데이터 수집)</td>
   </tr>
   <tr>
     <td>
-    뭐 suapc 출전~ 알고리즘 스터디~같은 ps관련..!
+    - EDOC(이화여자대학교 컴퓨터공학과 알고리즘 학회) 15 ~ 16기 부원 </br>
+    - ICPC Sinchon (신촌지역 대학교 연합 알고리즘 학회) 8 ~ 9기 학회원 </br>
+    - 2024 IT 스타트업 컨포트랩 인턴: 데이터 파이프라인 개선 직무 수행 </br>
     </td>
   </tr>
 </table>
 
 <table style="width: 100%;">
   <tr>
-    <th>이름 <a href="https://github.com/(깃허브 핸들)" target="_blank">(깃허브 핸들)</a></th>
+    <th>정소은 <a href="https://github.com/sunnism03" target="_blank">sunnism03</a></th>
   </tr>
   <tr>
-    <td>BE</td>
+    <td>BE(백엔드 로직 개발)</td>
   </tr>
   <tr>
     <td>
-    뭐 suapc 출전~ 알고리즘 스터디~같은 ps관련..!
+    - SUAPC(신촌지역 대학교 연합 알고리즘 대회) 출전</br>
+    - 프로그래머스 데브코스 수료
     </td>
   </tr>
 </table>
@@ -101,12 +104,15 @@ PS벗들 화이팅!
 
 ### DB
 
-- java를 이용한 크롤링?
-- mysql~rds~
+- jsoup을 사용해 크롤링
+- solved.ac api를 사용해 데이터 얻어오기
+- Amazon RDS MySQL 사용
 
 ### BE
 
-- 스프링~
+- Springboot 이용한 백엔드 로직 개발
+- github action을 이용한 CI/CD 구축
+- 도커 이미지를 이용해 AWS EC2에 배포
 
 ### FE
 
