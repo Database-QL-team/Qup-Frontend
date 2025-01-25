@@ -4,6 +4,5 @@
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
   "/tag-problems": "pages/tag-problems.js",
-  "/tag-problems/[name]": "pages/tag-problems/[name].js",
   "/difficulty-problems": "pages/difficulty-problems.js"
 }
