@@ -7,6 +7,16 @@ const TitleSectionContainer = styled.div`
   width: 61%;
   padding: 20px;
   box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.slide-up {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 
   @media (max-width: 700px) {
     width: 90%;
@@ -14,6 +24,7 @@ const TitleSectionContainer = styled.div`
     margin-top: 30px;
   }
 `;
+
 const CenterText = styled.div`
   font-size: 2rem;
   font-weight: 500;
@@ -38,13 +49,7 @@ const Title = ({ sentence }) => {
   }, []);
 
   return (
-    <TitleSectionContainer
-      className={isVisible ? "slide-up" : ""}
-      style={{
-        visibility: isVisible ? "visible" : "hidden",
-        opacity: isVisible ? 1 : 0,
-      }}
-    >
+    <TitleSectionContainer className={isVisible ? "slide-up" : ""}>
       <CenterText>{sentence}</CenterText>
     </TitleSectionContainer>
   );
