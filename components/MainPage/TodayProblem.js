@@ -70,7 +70,7 @@ const Table = styled.table`
     padding-right: 10px;
   }
 `;
-const LinkButton = styled.a`
+const LinkButton = styled.a` 
   background-color: green;
   color: white;
   padding: 5px 10px;
