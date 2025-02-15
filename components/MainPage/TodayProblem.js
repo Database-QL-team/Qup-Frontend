@@ -56,7 +56,7 @@ const Table = styled.table`
 
     th,
     td {
-      padding: 7px;
+      padding: 10px 0;
     }
   }
 

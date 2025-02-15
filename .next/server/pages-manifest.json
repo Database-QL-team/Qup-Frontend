@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/difficulty-problems/[name]": "pages/difficulty-problems/[name].js",
   "/": "pages/index.js",
-  "/tag-problems": "pages/tag-problems.js",
-  "/difficulty-problems": "pages/difficulty-problems.js"
+  "/tag-problems/[name]": "pages/tag-problems/[name].js"
 }

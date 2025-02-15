@@ -6,7 +6,7 @@ import { refreshApi } from "../../../apis/refreshApi";
 
 const RefreshButton = () => {
   const [isLoading, setIsLoading] = useState(false); // 로딩 상태 관리
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 여부 관리
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 여부 관리 --- 잘 되면 추후 없애도 되고
 
   const handleLogin = async () => {
     const handle = prompt(
@@ -23,10 +23,10 @@ const RefreshButton = () => {
     setIsLoading(false);
 
     if (success) {
-      alert("리프레시 시작!");
+      alert("리프레시!");
       setIsLoggedIn(true);
     } else {
-      alert("다시 시도해주세요.");
+      alert("handle 입력이 정확하지 않은 것 같아요ㅠ (이화인만 가능 / 백준에서 이화여대 단체 등록을 확인해주세요. )");
     }
   };
 
@@ -36,15 +36,15 @@ const RefreshButton = () => {
     setIsLoading(false);
 
     if (success) {
-      alert("리프레시 시작!");
+      alert("리프레시!");
     } else {
       alert("리프레시 실패. 다시 시도해주세요.");
     }
   };
 
   const handleRefreshButtonClick = async () => {
-    const hasCookie = document.cookie.includes("auth_token"); // 인증 쿠키 확인
-
+    const hasCookie = document.cookie.includes("handle"); // 인증 쿠키 확인
+    console.log(document.cookie);
     if (!hasCookie && !isLoggedIn) {
       console.log("쿠키 없음: 로그인 진행");
       await handleLogin();
