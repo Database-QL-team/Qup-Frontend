@@ -88,7 +88,7 @@ const TodayProblemWrap = ({ rawData }) => {
         transition: "visibility 0s, opacity 0.5s linear",
       }}
     >
-      <MainTitle>- 오늘의 문제 -</MainTitle>
+      <MainTitle>- 추천 문제 -</MainTitle>
       <WrapContainer>
         {Object.entries(groupedData).map(([group, problems]) => (
           <TodayProblem key={group} title={group} problems={problems} />
