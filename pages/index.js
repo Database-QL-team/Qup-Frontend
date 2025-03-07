@@ -4,21 +4,30 @@ import Layout from "../components/Layout/Layout";
 import Title from "../components/MainPage/Title";
 import RankingBoxWrap from "../components/MainPage/RankingBoxWrap";
 import TodayProblemWrap from "../components/MainPage/TodayProblemWrap";
+import EwhaHistoryBoxWrap from "../components/MainPage/EwhaHistoryBoxWrap";
 import { mainApi } from "../apis/mainApi";
+import { EwhaHistoryApi } from "../apis/EwhaHistoryAPI";
+import RankingGraph from "../components/MainPage/RankingGraph"
 
 const Home = () => {
   const [data, setData] = useState(null);
+  const [historyData, setHistoryData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
+
       setIsLoading(true);
       try {
-        const response = await mainApi();
-        console.log(response);
-        if (response) {
+        const [response, historyResponse] = await Promise.all([
+          mainApi(),
+          EwhaHistoryApi(),
+        ]);
+        
+        if (response && historyResponse) {
           setData(response);
+          setHistoryData(historyResponse);
         } else {
           throw new Error("데이터가 비어 있습니다.");
         }
@@ -44,6 +53,8 @@ const Home = () => {
     <Layout>
       <Title />
       <RankingBoxWrap RankingBoxData={data?.groupInfo} />
+      <RankingGraph ewhaHistoryData={historyData} />
+      <EwhaHistoryBoxWrap ewhaHistoryBoxData={historyData} />
       <TodayProblemWrap rawData={data?.todayPSList} />
     </Layout>
   );
