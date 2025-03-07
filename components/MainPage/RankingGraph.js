@@ -1,4 +1,3 @@
-import React from "react";
 import {
   LineChart,
   Line,
@@ -9,8 +8,21 @@ import {
   ResponsiveContainer,
   Brush,
 } from "recharts";
+import styled from "@emotion/styled";
+import React, { useEffect, useState } from "react";
+
+
 
 const RankingGraph = ({ ewhaHistoryData = [] }) => {
+      const [isVisible, setIsVisible] = useState(false);
+    
+      useEffect(() => {
+        const timer = setTimeout(() => {
+          setIsVisible(true);
+        }, 400);
+        return () => clearTimeout(timer);
+      }, []);
+
   // 데이터가 없는 경우 안전하게 처리
   if (!ewhaHistoryData || ewhaHistoryData.length === 0) {
     return <div>데이터를 불러오는 중입니다...</div>;
@@ -35,7 +47,14 @@ const RankingGraph = ({ ewhaHistoryData = [] }) => {
 
 
   return (
-    <ResponsiveContainer width="70%" height={300}>
+
+    <ResponsiveContainer 
+     className={isVisible ? "slide-up" : ""}
+     style={{
+       visibility: isVisible ? "visible" : "hidden",
+       opacity: isVisible ? 1 : 0,
+     }}
+     width="70%" height={300}>
       <LineChart
         data={sampledData}
         margin={{ top: 20, right: 30, left: 20, bottom: 10 }}
@@ -70,6 +89,7 @@ const RankingGraph = ({ ewhaHistoryData = [] }) => {
         <Brush dataKey="date" height={30} stroke="#4caf50" />
       </LineChart>
     </ResponsiveContainer>
+
   );
 };
 
