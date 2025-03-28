@@ -2,8 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/tag-problems": "pages/tag-problems.js",
   "/ewha-contribution-ranking": "pages/ewha-contribution-ranking.js",
-  "/": "pages/index.js",
-  "/Contact": "pages/Contact.js"
+  "/": "pages/index.js"
 }
