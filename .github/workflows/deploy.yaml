@@ -42,7 +42,12 @@ jobs:
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }} # pem 키
 
           script: |
-           # 1. 사용하지 않는 도커 리소스 먼저 정리 (공간 확보)
+           # 0. 시스템 공간 확보
+            sudo apt-get clean                           # APT 캐시 정리
+            sudo journalctl --vacuum-time=3d            # 최근 3일치 로그만 보존
+            sudo apt-get autoremove --purge -y          # 오래된 커널/패키지 정리
+
+            # 1. 사용하지 않는 도커 리소스 먼저 정리 (공간 확보)
             docker stop qup-frontend || true
             docker rm qup-frontend || true
             docker system prune -af --volumes || true
