@@ -94,13 +94,7 @@ const EwhaContributionRankingButton = () => {
     const closeModal = () => setIsOpen(false);
 
     return (
-        <WrapContainer
-        className={isVisible ? "slide-up" : ""}
-        style={{
-            visibility: isVisible ? "visible" : "hidden",
-            opacity: isVisible ? 1 : 0,
-        }}
-        >
+        <>
         <Button onClick={openModal}>📊 기여 점수 산정 기준 보기</Button>
         {isOpen && (
             <ModalOverlay onClick={closeModal}>
@@ -150,7 +144,7 @@ const EwhaContributionRankingButton = () => {
             </ModalContent>
             </ModalOverlay>
         )}
-        </WrapContainer>
+        </>
     );
 };
 
