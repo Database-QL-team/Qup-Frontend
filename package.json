@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -45,8 +46,11 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.0.12",
     "babel-plugin-styled-components": "^2.1.4",
-    "eslint": "^9.3.0"
+    "eslint": "^9.3.0",
+    "typescript": "^5.8.2"
   },
   "proxy": "http://localhost:8080"
 }

@@ -5,6 +5,8 @@ import Text from "../ui/text/Text";
 const routes = [
   { title: "분류별 문제", href: "/tag-problems" },
   { title: "난이도별 문제", href: "/difficulty-problems" },
+  { title: "이화기여랭킹", href: "/ewha-contribution-ranking" },
+  { title: "문의", href: "/Contact" },
 ];
 
 const LogoWrapper = styled.div`
@@ -31,6 +33,7 @@ const StyledHeader = styled.header`
   width: 100%;
   height: 78px;
   padding: 0 0 0 0;
+
 `;
 
 const Qup = styled.div`
@@ -39,7 +42,7 @@ const Qup = styled.div`
   font-weight: 600;
 
   @media (max-width: 700px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `;
 
@@ -91,7 +94,7 @@ const DesktopTopbarItem = styled.div`
   }
 
   @media (max-width: 700px) {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     padding-left: 1rem;
   }
 `;
