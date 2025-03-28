@@ -42,18 +42,16 @@ jobs:
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }} # pem 키
 
           script: |
-           # 최신 이미지 풀
+           # 1. 사용하지 않는 도커 리소스 먼저 정리 (공간 확보)
+            docker stop qup-frontend || true
+            docker rm qup-frontend || true
+            docker system prune -af --volumes || true
+
+            # 2. 그 다음 최신 이미지 pull
             if ! docker pull ${{ env.DOCKER_IMAGE }}:latest; then
               echo "Failed to pull the latest image."
               exit 1
             fi
 
-            # 기존 컨테이너 중지 및 제거
-            docker stop qup-frontend || true
-            docker rm qup-frontend || true
-
-            # 사용하지 않는 이미지/컨테이너/볼륨/네트워크 전부 정리
-            docker system prune -af --volumes || true
-
-            # 새 컨테이너 실행
+            # 3. 새 컨테이너 실행
             docker run -d --name qup-frontend -p 80:3000 ${{ env.DOCKER_IMAGE }}:latest
