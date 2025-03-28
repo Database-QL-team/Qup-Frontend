@@ -1,10 +1,10 @@
-import { instance } from "./corsInstance";
+import { instance } from "./instance";
 
 export const loginApi = async (handle) => {
   try {
     console.log("요청 URL:", `/members/login?handle=${handle}`);
     const response = await instance.post(`/members/login?handle=${handle}`);
-    console.log("응답 데이터:", response.data);
+    console.log("응답 데이터:", response);
     if (response.data.isSuccess === false) {
       console.error("로그인 실패:", response.data.message);
       return false;

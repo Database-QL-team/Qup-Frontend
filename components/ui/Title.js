@@ -44,7 +44,7 @@ const Title = ({ sentence }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 300);
+    }, 400);
     return () => clearTimeout(timer);
   }, []);
 
